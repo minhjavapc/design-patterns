@@ -6,12 +6,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class DarkRoast extends Beverage{
-    @Override
-    public double cost() {
-        return 0;
-    }
 
     public DarkRoast() {
+        description = "Dark Roast Coffe";
+    }
 
+    @Override
+    public double cost() {
+        return 2;
     }
 }
