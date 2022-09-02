@@ -1,13 +1,21 @@
 package com.likelion.mybatis.design_pattern.factory;
 
-public class NYPizzaStore extends PizzaShop{
+import com.likelion.mybatis.design_pattern.factory.factory.NYPizzaIngredientFactory;
+import com.likelion.mybatis.design_pattern.factory.factory.PizzaIngredientFactory;
+
+public class NYPizzaStore extends PizzaStore {
     @Override
     Pizza createPizza(String type) {
 
-        if (type.equalsIgnoreCase("cheese")) {
-            return new NYStyleCheesePizza();
-        }
+        Pizza pizza = null;
+        PizzaIngredientFactory pizzaIngredientFactory = new NYPizzaIngredientFactory();
 
-        return null;
+        if (type.equalsIgnoreCase("cheese")) {
+            pizza = new CheesePizza(pizzaIngredientFactory);
+        } else if (type.equalsIgnoreCase("clam")) {
+            pizza = new ClamPizza(pizzaIngredientFactory);
+            pizza.setName("New York Style Clam Pizza");
+        }
+        return pizza;
     }
 }

@@ -2,13 +2,12 @@ package com.likelion.mybatis.design_pattern.factory;
 
 import com.likelion.mybatis.design_pattern.factory.factory.PizzaIngredientFactory;
 
-public class CheesePizza extends Pizza{
+public class ClamPizza extends Pizza{
 
     PizzaIngredientFactory pizzaIngredientFactory;
 
-    public CheesePizza(PizzaIngredientFactory pizzaIngredientFactory) {
+    public ClamPizza(PizzaIngredientFactory pizzaIngredientFactory) {
         this.pizzaIngredientFactory = pizzaIngredientFactory;
-        this.name = "New York Style Cheese Pizza";
     }
 
     @Override
@@ -17,20 +16,6 @@ public class CheesePizza extends Pizza{
         dough = pizzaIngredientFactory.createDough();
         sauce = pizzaIngredientFactory.createSauce();
         cheese = pizzaIngredientFactory.createCheese();
-    }
-
-    @Override
-    void bake() {
-
-    }
-
-    @Override
-    void cut() {
-
-    }
-
-    @Override
-    void box() {
-
+        clams = pizzaIngredientFactory.createClams();
     }
 }

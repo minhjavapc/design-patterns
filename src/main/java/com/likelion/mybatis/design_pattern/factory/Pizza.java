@@ -1,24 +1,20 @@
 package com.likelion.mybatis.design_pattern.factory;
 
-import java.util.ArrayList;
+import com.likelion.mybatis.design_pattern.factory.ingredient.*;
+
+import java.util.Arrays;
 
 public abstract class Pizza {
 
     String name;
-    String dough;
-    String sauce;
-    ArrayList toppings = new ArrayList();
+    Dough dough;
+    Sauce sauce;
+    Veggies veggies[];
+    Cheese cheese;
+    Pepperoni pepperoni;
+    Clams clams;
 
-    void prepare() {
-        System.out.println("Prepare " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Add sauce...");
-        System.out.println("Add toppings...");
-
-        for (int i = 0 ; i<toppings.size();i++) {
-            System.out.println("   " + toppings.get(i));
-        }
-    }
+    abstract void prepare();
 
     void bake(){
         System.out.println("Bake for 25 minutes at 350");
@@ -32,7 +28,24 @@ public abstract class Pizza {
 
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName(){
-        return name;
+        return this.name;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "name='" + name + '\'' +
+                ", dough=" + dough +
+                ", sauce=" + sauce +
+                ", veggies=" + Arrays.toString(veggies) +
+                ", cheese=" + cheese +
+                ", pepperoni=" + pepperoni +
+                ", clams=" + clams +
+                '}';
     }
 }
