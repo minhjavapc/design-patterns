@@ -16,4 +16,14 @@ public class LightOffCommand implements Command{
     public void undo() {
 
     }
+
+    @Override
+    public void store() {
+
+    }
+
+    @Override
+    public void load() {
+
+    }
 }
